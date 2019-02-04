@@ -1,0 +1,25 @@
+<template>
+  <div class="col-md-12">
+    <div class="card weather-box">
+      <h4 class="weather-title box-title bg-success text-white">
+        Assign User to Merchant
+      </h4>
+      <div class="card-body">
+        <div class="row form-group">
+          <div class="col-12">
+            <select class="form-control" value.bind="selectedMerchant">
+              <option repeat.for="merchant of dataStore.merchants" model.bind="merchant">
+                ${merchant.name}
+              </option>
+            </select>
+          </div>
+          <div class="col">
+            <button type="submit" class="btn btn-lg btn-info btn-block" click.trigger="assignToMerchant()">
+              <span>Assign</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

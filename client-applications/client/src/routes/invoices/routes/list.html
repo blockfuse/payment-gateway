@@ -1,0 +1,11 @@
+<template>
+  <require from="components/invoices-list"></require>
+  <require from="components/create-invoice"></require>
+
+  <invoices-list invoices.bind="dataStore.invoices"
+    refresh-callback.call="refreshInvoices()">
+  </invoices-list>
+
+  <create-invoice></create-invoice>
+
+</template>

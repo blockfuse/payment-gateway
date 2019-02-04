@@ -1,0 +1,60 @@
+<template>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <strong class="card-title">Invoices</strong>
+
+          <div class="pull-right">
+            <button class="btn btn-sm btn-outline-primary"
+                click.trigger="refresh()"
+                disabled.bind="isRefreshingInvoices">
+              <i class="fa fa-refresh ${isRefreshingInvoices ? 'fa-spin' : ''}"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="col-3 text" scope="col">
+                    Description
+                  </th>
+                  <th scope="col">Tokens</th>
+                  <th scope="col">Confirmed at</th>
+                  <th scope="col">Created at</th>
+                  <th scope="col">Expires at</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr repeat.for="invoice of invoices">
+                  <td class="col-3 text">
+                    <a href="#/invoices/${invoice.id}">
+                      <span style="max-width: 200px;">${invoice.description}</span>
+                    </a>
+                  </td>
+                  <td>${invoice.tokens}</td>
+                  <td>${invoice.confirmed_at | dateTimeFormat}</td>
+                  <td>${invoice.created_at | dateTimeFormat}</td>
+                  <td>${invoice.expires_at | dateTimeFormat}</td>
+                  <td>${invoice.status}</td>
+                  <td>
+                    <template if.bind="(invoice.status === 'paid' && invoice.is_confirmed === true)">
+                      <button class="btn btn-success btn-sm"
+                          click.delegate="settleInvoice(invoice)">
+                        Settle
+                      </button>
+                    </template>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

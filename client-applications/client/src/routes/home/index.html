@@ -1,0 +1,18 @@
+<template>
+  <require from="components/wallet-info"></require>
+  <require from="components/network-info"></require>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <wallet-info wallet-info.bind="nodeInfo.walletInfo"></wallet-info>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <network-info network-info.bind="nodeInfo.networkInfo"></network-info>
+      </div>
+    </div>
+  </div>
+</template>

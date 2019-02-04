@@ -1,0 +1,8 @@
+<template>
+  <require from="components/peers-list"></require>
+  <require from="components/connect-peer"></require>
+
+  <peers-list peers.bind="dataStore.peers"></peers-list>
+
+  <connect-peer callback.call="newPeerCreated(peer)"></connect-peer>
+</template>

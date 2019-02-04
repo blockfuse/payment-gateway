@@ -1,0 +1,5 @@
+{
+  "connectionString": "mongodb://mongodb:27017/payment",
+  "accountingHubUrl": "http://localhost:3987/",
+  "secret": "shshhhhhhh"
+}
